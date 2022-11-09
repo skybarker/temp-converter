@@ -8,6 +8,7 @@ const conversions = {
 };
 
 export function tryConvert(temperature, conversion) {
+  console.log(temperature, conversion);
   const input = parseFloat(temperature);
   if (Number.isNaN(input)) {
     return "";
@@ -16,5 +17,5 @@ export function tryConvert(temperature, conversion) {
   const output = conversions[conversion](input);
 
   const rounded = Math.round(output * 1000) / 1000;
-  return rounded.toString();
+  return rounded;
 }

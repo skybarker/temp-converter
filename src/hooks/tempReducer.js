@@ -1,14 +1,29 @@
 import { tryConvert } from "../utils/tryConvert";
 
-export default function (state, action) {
+export default (state, action) => {
   switch (action.type) {
     case "set_celsius":
-      return { celsius: tryConvert(state.temp.fahrenheit, "convertToCelsius") };
-    case "set_fahrenheit":
+      console.log("celsius");
+
       return {
-        fahrenheit: tryConvert(state.temp.celsius, "convertToFahrenheit"),
+        ...state,
+        celsius: tryConvert(action.payload, "convertToCelsius"),
+        fahrenheit: action.payload,
+      };
+    case "set_fahrenheit":
+      console.log("fahrenheit");
+
+      return {
+        ...state,
+        celsius: action.payload,
+        fahrenheit: tryConvert(action.payload, "convertToFahrenheit"),
       };
     default:
-      throw new Error("Invalid Action");
+      return {
+        ...state,
+        celsius: state.celsius,
+        fahrenheit: state.fahrenheit,
+      };
   }
-}
+  // throw new Error("Invalid Action");
+};
