@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import capitalize from "lodash.capitalize";
 
-export default function Input({ label, id, value, onChange }) {
+export default function Input({ id, value, onChange }) {
   return (
     <div>
-      <label htmlFor={id}>{label || capitalize(id)}</label>
+      <label htmlFor={id}>{capitalize(id)}</label>
       <input id={id} type="number" value={value} onChange={onChange} />
     </div>
   );

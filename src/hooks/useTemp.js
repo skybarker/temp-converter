@@ -2,13 +2,14 @@ import { useReducer } from "react";
 import tempReducer from "./tempReducer";
 
 export default () => {
-  console.log("useTemp");
   const [temp, dispatch] = useReducer(tempReducer, {
     celsius: 0,
     fahrenheit: 32,
   });
 
-  console.log(temp);
+  // const setTemp = (value, unit) => {
+  //   dispatch({ type: `set_${unit}`, value });
+  // };
 
   return [temp, dispatch];
 };

@@ -12,7 +12,6 @@ function App() {
         </h1>
         <div className="flex gap-x-4 justify-center">
           <Input
-            label="Celsius"
             id="celsius"
             value={temp.celsius}
             onChange={(event) =>
@@ -23,7 +22,6 @@ function App() {
             }
           />
           <Input
-            label="Fahrenheit"
             id="fahrenheit"
             value={temp.fahrenheit}
             onChange={(event) =>
